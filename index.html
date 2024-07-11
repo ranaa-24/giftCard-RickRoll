@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+      }
+
+      button {
+        background-color: #4caf50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 12px;
+        transition: background-color 0.3s, transform 0.3s;
+        z-index: 10;
+      }
+
+      button:hover {
+        background-color: #45a049;
+        transform: scale(1.1);
+      }
+
+      @keyframes rotate-animation {
+        0% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes move-around {
+        0% {
+          transform: translate(0, 0);
+        }
+        25% {
+          transform: translate(200px, 100px);
+        }
+        50% {
+          transform: translate(-200px, 200px);
+        }
+        75% {
+          transform: translate(100px, -200px);
+        }
+        100% {
+          transform: translate(0, 0);
+        }
+      }
+
+      .rickroll-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #fff;
+      }
+
+      .rickroll-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .rickroll-content h1 {
+        margin: 0 0 20px;
+      }
+
+      .rickroll-content img {
+        transform: rotate(45deg);
+        animation: rotate-animation 10s infinite linear;
+        width: 100px;
+        height: 100px;
+      }
+
+      .vector-art {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        animation: move-around 10s infinite;
+      }
+
+      @media (min-width: 600px) {
+        button {
+          padding: 20px 40px;
+          font-size: 18px;
+        }
+
+        .rickroll-content img {
+          width: 100px;
+          height: 100px;
+        }
+
+        .vector-art {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    </style>
+    <title>Free Random Gifts</title>
+  </head>
+  <body>
+    <button onclick="nice()">CLICK HERE TO GET A GIFT-CARD</button>
+
+    <svg class="vector-art" viewBox="0 0 100 100">
+      <circle
+        cx="50"
+        cy="50"
+        r="40"
+        stroke="blue"
+        stroke-width="4"
+        fill="lightblue"
+      />
+    </svg>
+    <svg class="vector-art" style="animation-delay: 2s" viewBox="0 0 100 100">
+      <rect
+        x="25"
+        y="25"
+        width="50"
+        height="50"
+        stroke="red"
+        stroke-width="4"
+        fill="pink"
+      />
+    </svg>
+    <svg class="vector-art" style="animation-delay: 4s" viewBox="0 0 100 100">
+      <polygon
+        points="50,15 90,85 10,85"
+        stroke="green"
+        stroke-width="4"
+        fill="lightgreen"
+      />
+    </svg>
+
+    <script>
+      let beat = new Audio("rick.mp3");
+      function playAudio() {
+        beat.play();
+      }
+
+      function nice() {
+        document.write(`
+        <div class='rickroll-container' style='display: flex; align-items: center; justify-content: center; height: 100vh;'>
+          <div class='rickroll-content' style='display: flex; align-items: center; justify-content: center; flex-direction: column;'>
+            <h1 style='text-align: center;'>You have been rick rolled!</h1>
+            <img class='J9AiF' src='https://64.media.tumblr.com/tumblr_m971zpBbAF1rbgzizo1_500.gifv' alt='Tumblr: Image' height=100px >
+          </div>
+        </div>
+        <audio id='nice'><source src='./rick.mp3' type='audio/mp3'></audio>
+      `);
+        playAudio();
+      }
+    </script>
+  </body>
+</html>
